@@ -1,4 +1,8 @@
-# Volume Wall Detector MCP
+<h1 align="center">Volume Wall Detector MCP</h1>
+
+<p align="center">
+  <img src="vld-logo.png" width="300" alt="VLD Logo">
+</p>
 
 A Model Context Protocol (MCP) server for analyzing stock trading volume and identifying significant price levels (volume walls).
 
