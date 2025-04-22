@@ -1,0 +1,42 @@
+{
+  "name": "volume-wall-detector-mcp",
+  "version": "1.0.0",
+  "description": "Volume Wall Detector MCP Server",
+  "main": "dist/index.js",
+  "type": "commonjs",
+  "bin": {
+    "volume-wall-detector-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prepare": "npm run build"
+  },
+  "keywords": ["trading", "volume", "analysis", "mcp"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
+    "fastmcp": "^1.0.0",
+    "mongodb": "^6.3.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.19",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+} 
