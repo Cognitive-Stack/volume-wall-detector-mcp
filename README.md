@@ -1,91 +1,148 @@
-<h1 align="center">Volume Wall Detector MCP</h1>
+# Volume Wall Detector MCP Server 📊
+
+> 🔌 **Compatible with Cline, Cursor, Claude Desktop, and any other MCP Clients!**
+> 
+> Volume Wall Detector MCP works seamlessly with any MCP client
 
 <p align="center">
   <img src="vld-logo.png" width="300" alt="VLD Logo">
 </p>
 
-A Model Context Protocol (MCP) server for analyzing stock trading volume and identifying significant price levels (volume walls).
+The Model Context Protocol (MCP) is an open standard that enables AI systems to interact seamlessly with various data sources and tools, facilitating secure, two-way connections.
 
-## Features
+The Volume Wall Detector MCP server provides:
 
-- Fetch and store order book data
-- Fetch and store trade data
-- Analyze volume distribution at different price levels
-- Identify significant price levels based on trading activity
-- Track volume and value imbalances
-- Support for regular and after-hours trading analysis
+* Real-time stock trading volume analysis
+* Detection of significant price levels (volume walls)
+* Trading imbalance tracking and analysis
+* After-hours trading analysis
+* MongoDB-based data persistence
 
-## Installation
+## Prerequisites 🔧
 
-```bash
-npm install volume-wall-detector-mcp
-```
+Before you begin, ensure you have:
 
-## Configuration
+* MongoDB instance running
+* Stock market API access
+* Node.js (v20 or higher)
+* Git installed (only needed if using Git installation method)
 
-Create a `.env` file with the following variables:
+## Volume Wall Detector MCP Server Installation ⚡
 
-```env
-TIMEZONE=GMT+7
-API_BASE_URL=https://api.example.com
-MONGO_HOST=localhost
-MONGO_PORT=27017
-MONGO_DATABASE=volume_wall_detector
-MONGO_USER=admin
-MONGO_PASSWORD=password
-MONGO_AUTH_SOURCE=admin
-MONGO_AUTH_MECHANISM=SCRAM-SHA-1
-PAGE_SIZE=50
-TRADES_TO_FETCH=10000
-DAYS_TO_FETCH=1
-TRANSPORT_TYPE=stdio
-PORT=8080
-```
-
-## Available Tools
-
-### fetch-order-book
-Fetch current order book data for a symbol.
-
-Parameters:
-- `symbol`: Stock symbol to fetch order book for
-
-### fetch-trades
-Fetch recent trades for a symbol.
-
-Parameters:
-- `symbol`: Stock symbol to fetch trades for
-
-### analyze-stock
-Analyze stock data including volume and value analysis.
-
-Parameters:
-- `symbol`: Stock symbol to analyze
-- `days`: Number of days to analyze (optional)
-
-## Usage
+### Running with NPX
 
 ```bash
-# Start the server
-npm start
-
-# Or in development mode
-npm run dev
+npx -y volume-wall-detector-mcp@latest
 ```
 
-## Development
+### Installing via Smithery
+
+To install Volume Wall Detector MCP Server for Claude Desktop automatically via Smithery:
 
 ```bash
-# Install dependencies
-npm install
+npx -y @smithery/cli install volume-wall-detector-mcp --client claude
+```
 
-# Run tests
-npm test
+## Configuring MCP Clients ⚙️
 
-# Build the project
-npm run build
+### Configuring Cline 🤖
+
+1. Open the Cline MCP settings file:
+```bash
+# For macOS:
+code ~/Library/Application\ Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json
+
+# For Windows:
+code %APPDATA%\Code\User\globalStorage\saoudrizwan.claude-dev\settings\cline_mcp_settings.json
+```
+
+2. Add the Volume Wall Detector server configuration:
+```json
+{
+  "mcpServers": {
+    "volume-wall-detector-mcp": {
+      "command": "npx",
+      "args": ["-y", "volume-wall-detector-mcp@latest"],
+      "env": {
+        "TIMEZONE": "GMT+7",
+        "API_BASE_URL": "your-api-url-here",
+        "MONGO_HOST": "localhost",
+        "MONGO_PORT": "27017",
+        "MONGO_DATABASE": "volume_wall_detector",
+        "MONGO_USER": "admin",
+        "MONGO_PASSWORD": "password",
+        "MONGO_AUTH_SOURCE": "admin",
+        "MONGO_AUTH_MECHANISM": "SCRAM-SHA-1",
+        "PAGE_SIZE": "50",
+        "TRADES_TO_FETCH": "10000",
+        "DAYS_TO_FETCH": "1",
+        "TRANSPORT_TYPE": "stdio",
+        "PORT": "8080"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
+```
+
+### Configuring Cursor 🖥️
+
+> **Note**: Requires Cursor version 0.45.6 or higher
+
+1. Open Cursor Settings
+2. Navigate to Open MCP
+3. Click on "Add New Global MCP Server"
+4. Fill out the following information:
+   * **Name**: "volume-wall-detector-mcp"
+   * **Type**: "command"
+   * **Command**:
+   ```bash
+   env TIMEZONE=GMT+7 API_BASE_URL=your-api-url-here MONGO_HOST=localhost MONGO_PORT=27017 MONGO_DATABASE=volume_wall_detector MONGO_USER=admin MONGO_PASSWORD=password MONGO_AUTH_SOURCE=admin MONGO_AUTH_MECHANISM=SCRAM-SHA-1 PAGE_SIZE=50 TRADES_TO_FETCH=10000 DAYS_TO_FETCH=1 npx -y volume-wall-detector-mcp@latest
+   ```
+
+### Configuring Claude Desktop 🖥️
+
+Create or edit the Claude Desktop configuration file:
+
+#### For macOS:
+```bash
+code "$HOME/Library/Application Support/Claude/claude_desktop_config.json"
+```
+
+#### For Windows:
+```bash
+code %APPDATA%\Claude\claude_desktop_config.json
+```
+
+Add the configuration:
+```json
+{
+  "mcpServers": {
+    "volume-wall-detector-mcp": {
+      "command": "npx",
+      "args": ["-y", "volume-wall-detector-mcp@latest"],
+      "env": {
+        "TIMEZONE": "GMT+7",
+        "API_BASE_URL": "your-api-url-here",
+        "MONGO_HOST": "localhost",
+        "MONGO_PORT": "27017",
+        "MONGO_DATABASE": "volume_wall_detector",
+        "MONGO_USER": "admin",
+        "MONGO_PASSWORD": "password",
+        "MONGO_AUTH_SOURCE": "admin",
+        "MONGO_AUTH_MECHANISM": "SCRAM-SHA-1",
+        "PAGE_SIZE": "50",
+        "TRADES_TO_FETCH": "10000",
+        "DAYS_TO_FETCH": "1",
+        "TRANSPORT_TYPE": "stdio",
+        "PORT": "8080"
+      }
+    }
+  }
+}
 ```
 
 ## License
 
-ISC 
+MIT 

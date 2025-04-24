@@ -1,3 +1,5 @@
+"use strict";
+
 import { OrderBook, Trade, PriceVolumeData } from "../types/tools";
 import { getConfig } from "../config/env";
 import { getLatestOrderBook, getRecentTrades } from "../services/mongodb";

@@ -1,3 +1,5 @@
+"use strict";
+
 import axios from "axios";
 import { getConfig } from "../config/env";
 import { OrderBook, Trade } from "../types/tools";

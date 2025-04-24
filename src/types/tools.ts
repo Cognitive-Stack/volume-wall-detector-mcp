@@ -1,3 +1,5 @@
+"use strict";
+
 import { z } from "zod";
 import { FastMCP } from "fastmcp";
 

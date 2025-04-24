@@ -1,3 +1,5 @@
+"use strict";
+
 import { z } from "zod";
 import { ToolConfig } from "../types/tools";
 import { analyzeVolumeWalls } from "../tools/analyze-volume-walls";

@@ -1,3 +1,5 @@
+"use strict";
+
 import { MongoClient } from "mongodb";
 import { getConfig } from "../config/env";
 import { OrderBook, Trade } from "../types/tools";
