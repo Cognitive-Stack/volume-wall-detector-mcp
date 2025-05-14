@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/cognitive-stack-volume-wall-detector-mcp-badge.png)](https://mseep.ai/app/cognitive-stack-volume-wall-detector-mcp)
+
 # Volume Wall Detector MCP Server 📊
 
 > 🔌 **Compatible with Cline, Cursor, Claude Desktop, and any other MCP Clients!**
